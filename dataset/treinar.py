@@ -1,13 +1,12 @@
 from ultralytics import YOLO
 
-# Cria o modelo base
-model = YOLO("yolov8n.pt")  # ou yolov8s.pt se quiser mais precisão
+# Cria o modelo base 
+model = YOLO("yolov8n.pt")
 
-# Inicia o treinamento
 model.train(
-    data="dataset/data.yaml",  # caminho para seu arquivo .yaml
+    data="data.yaml",                 # caminho para o arquivo .yaml
     epochs=100,                       # número de ciclos de treino
     imgsz=640,                        # tamanho das imagens
     project="runs/detect",            # pasta onde vai salvar os resultados
-    name="train",                     # nome do experimento
+    name="train",                     # nome do teste
 )
