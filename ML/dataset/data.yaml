@@ -1,5 +1,5 @@
 train: ../dataset/train/images
 val: ../dataset/val/images
 
-nc: 1
-names: ['bicho_lixeiro_adulto']
+nc: 2
+names: ['BL_adulto', 'BL_ovo']
