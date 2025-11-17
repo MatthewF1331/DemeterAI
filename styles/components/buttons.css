@@ -1,0 +1,41 @@
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: var(--border-radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.btn-secondary {
+    background-color: var(--color-white);
+    color: var(--color-grey-dark);
+    border: 1px solid var(--color-grey-medium);
+}
+.btn-secondary.active,
+.btn-secondary:hover {
+    background-color: var(--color-grey-light);
+    border-color: var(--color-grey-dark);
+    color: var(--color-text);
+}
+.date-filters {
+    display: flex;
+    gap: 10px;
+}
+.date-filters .btn-secondary {
+    min-width: 80px;
+}
+.date-picker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 15px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-grey-medium);
+    border-radius: var(--border-radius-pill);
+    color: var(--color-text);
+    font-weight: 500;
+    cursor: pointer;
+}
+.date-picker i {
+    font-size: 20px;
+}

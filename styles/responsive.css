@@ -1,0 +1,113 @@
+@media (max-width: 1200px) {
+    .dashboard-grid, .analises-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    /* Reorganiza o grid */
+    .dashboard-grid .card:nth-child(n),
+    .analises-grid .card:nth-child(n) { 
+        grid-column: auto; grid-row: auto; 
+    }
+
+    .details-container {
+        grid-template-columns: 1fr;
+    }
+    .image-analysis { order: 2; }
+    .details-info { order: 1; }
+    .database-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+/* mobile */
+@media (max-width: 768px) {
+    body {
+        overflow: auto; /* Permite scroll no mobile */
+    }
+    .app-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+    .sidebar {
+        width: 100%;
+        height: 60px;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0 1rem;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 100;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    }
+    .sidebar-logo, .sidebar-footer {
+        display: none;
+    }
+    .sidebar-nav {
+        flex-direction: row;
+        gap: 1rem;
+        width: 100%;
+        justify-content: space-around;
+    }
+    
+    .main-wrapper {
+        width: 100%;
+        padding-bottom: 60px; /* Espaço para o sidebar/navbar de baixo */
+    }
+    
+    .header { padding: 0 1rem; height: 60px; }
+    .search-bar { width: 150px; }
+    .search-icon { width: 40px; }
+    .user-info { display: none; }
+    .header-controls { gap: 1rem; }
+    
+    .main-content { padding: 1rem; }
+    
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    .date-filters {
+        flex-wrap: wrap;
+    }
+    
+    .dashboard-grid, .analises-grid {
+        grid-template-columns: 1fr;
+    }
+    .info-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    /* --- Login Page Responsivo --- */
+    .login-card {
+        width: 90%;
+        height: auto;
+        transform: scale(1); /* Reseta o scale do desktop */
+    }
+    .login-body {
+        padding: 20px 30px;
+        gap: 20px;
+    }
+    .input-group {
+        width: 100%;
+        height: 50px;
+    }
+    .input-icon {
+        width: 50px;
+        height: 50px;
+    }
+    .input-group input {
+        font-size: 16px;
+    }
+    .login-footer {
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+    .login-footer button {
+        width: 100%;
+        font-size: 18px;
+    }
+}

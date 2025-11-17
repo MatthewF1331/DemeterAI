@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demeter - Análises</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="page active app-container">
+
+        <!-- Componente: Sidebar (Navegação) -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <i class='bx bxs-leaf'></i>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="sidebar-link" title="Dashboard">
+                    <i class='bx bxs-dashboard'></i>
+                </a>
+                <a href="analises.html" class="sidebar-link active" title="Análises">
+                    <i class='bx bxs-bar-chart-alt-2'></i>
+                </a>
+                <a href="database.html" class="sidebar-link" title="Banco de Imagens">
+                    <i class='bx bxs-data'></i>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="#" class="sidebar-link" title="Configurações">
+                    <i class='bx bxs-cog'></i>
+                </a>
+            </div>
+        </aside>
+
+        <div class="main-wrapper">
+
+            <header class="header">
+                <div class="search-bar">
+                    <div class="search-icon"><i class='bx bx-search'></i></div>
+                    <input type="text" placeholder="Pesquisar...">
+                </div>
+                <div class="header-controls">
+                    <i class='bx bxs-bell control-icon'></i>
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            <img src="https://placehold.co/40x40/EAEAEA/7B7B7B?text=JD" alt="User Avatar">
+                        </div>
+                        <div class="user-info">
+                            <span class="user-name">John D.</span>
+                            <span class="user-role">Admin</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <main class="main-content">
+
+                <div id="analisesPage" class="page-content active">
+                    <div class="page-header">
+                        <h1 class="page-title">Análises de Desempenho</h1>
+                        <div class="date-filters">
+                            <button class="btn btn-secondary active">Dia</button>
+                            <button class="btn btn-secondary">Semana</button>
+                            <button class="btn btn-secondary">Mês</button>
+                            <div class="date-picker">
+                                <i class='bx bxs-calendar'></i>
+                                <span>3 Set 2025 - 8 Set 2025</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="analises-grid">
+                        <div class="card kpi-card">
+                            <div class="kpi-header"><span class="kpi-title"><i class='bx bxs-camera'></i> Taxa de Fotos por dia</span></div>
+                            <div class="kpi-value">4</div>
+                            <div class="kpi-footer">Intervalo de 6 horas por foto</div>
+                        </div>
+                        <div class="card kpi-card">
+                            <div class="kpi-header"><span class="kpi-title"><i class='bx bx-target-lock'></i> Precisão média</span></div>
+                            <div class="kpi-value">50.2 <span class="kpi-value-unit">mAP<sup>val</sup></span></div>
+                            <div class="kpi-footer">Precisão ideal: 50-95</div>
+                        </div>
+                        <div class="card kpi-card">
+                            <div class="kpi-header"><span class="kpi-title"><i class='bx bxs-chip'></i> Velocidade CPU</span></div>
+                            <div class="kpi-value">234.7 <span class="kpi-value-unit">ms</span></div>
+                            <div class="kpi-footer">Velocidade de processamento ideal</div>
+                        </div>
+                        <div class="card kpi-card">
+                            <div class="kpi-header"><span class="kpi-title"><i class='bx bxs-data'></i> Qnt. de Fotos no Database</span></div>
+                            <div class="kpi-value">10.253</div>
+                            <div class="kpi-footer">28 fotos por semana</div>
+                        </div>
+                        <div class="card">
+                            <span class="kpi-title">Métrica de Desempenho</span>
+                            <div class="line-chart-container" style="height: 300px;">
+                                <canvas id="metricaDesempenhoChart1"></canvas>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <span class="kpi-title">Relatório do Processamento de Imagens</span>
+                            <div class="report-card-grid" style="margin-top: 1.5rem;">
+                                <div class="info-item"><span class="info-label">Modelo</span><span class="info-value" style="font-size: 24px;">YOLOv8m</span></div>
+                                <div class="info-item"><span class="info-label">Qnt. de Fotos no Database</span><span class="info-value" style="font-size: 24px;">10.253</span></div>
+                                <div class="info-item"><span class="info-label">Intervalo de 6 horas por foto</span><span class="info-value">28 fotos por semana</span></div>
+                                <div class="info-item"><span class="info-label">Tamanho</span><span class="info-value" style="font-size: 24px;">640 px</span></div>
+                                <div class="info-item"><span class="info-label">Previsão Média</span><span class="info-value" style="font-size: 24px;">50.2 mAP<sup>val</sup></span></div>
+                                <div class="info-item"><span class="info-label">Velocidade CPU ONNX</span><span class="info-value" style="font-size: 24px;">234.7 ms</span></div>
+                                <div class="info-item"><span class="info-label">Velocidade A100 TensorRT</span><span class="info-value" style="font-size: 24px;">1.83 ms</span></div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <span class="kpi-title">Comparativo Métrica de Desempenho</span>
+                            <div class="line-chart-container" style="height: 300px;">
+                                <canvas id="metricaDesempenhoChart2"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="js/main.js" defer></script>
+</body>
+
+</html>

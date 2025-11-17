@@ -1,50 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Página de Login</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&display=swap" rel="stylesheet">
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demeter - Login</title>
+
+    <!-- Links de CSS e Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="login-page">
-    <div class="login-card">
-      <div class="login-header">
-        <img src="demeter.png" alt="Logo">
-      </div>
-      <div class="login-body">
-        <h2>Faça seu Login</h2>
 
-        <!-- Campo Usuário -->
-        <div class="input-group">
-          <div class="input-icon">
-            <i data-lucide="user-round"></i>
-          </div>
-          <input type="text" placeholder="Usuário">
+    <div class="page active login-page">
+        <div class="login-card">
+            <div class="login-header">
+                <img src="https://placehold.co/200x65/0AA146/FFFFFF?text=Deméter™&font=outfit" alt="Demeter Logo">
+            </div>
+            <div class="login-body">
+                <h2>Faça seu Login</h2>
+                <div class="input-group">
+                    <div class="input-icon"><i class='bx bxs-user'></i></div>
+                    <input type="text" placeholder="Usuário">
+                </div>
+                <div class="input-group">
+                    <div class="input-icon"><i class='bx bxs-lock-alt'></i></div>
+                    <input type="password" placeholder="Senha">
+                </div>
+                <div class="login-footer">
+                    <a href="#">Esqueci minha Senha</a>
+                    <button onclick="window.location.href='dashboard.html'">Entrar</button>
+                </div>
+            </div>
         </div>
-
-        <!-- Campo Senha -->
-        <div class="input-group">
-          <div class="input-icon">
-            <i data-lucide="lock"></i>
-          </div>
-          <input type="password" placeholder="Senha">
-        </div>
-
-        <!-- Links e Botão -->
-        <div class="login-footer">
-          <a href="#">Esqueci minha senha</a>
-          <button>Entrar</button>
-        </div>
-      </div>
     </div>
-  </div>
 
-  <script>
-    lucide.createIcons();
-  </script>
 </body>
 </html>

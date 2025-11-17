@@ -1,0 +1,176 @@
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--color-grey-light);
+    color: var(--color-text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden; /* Evita scroll no body */
+}
+
+
+.page {
+    height: 100%;
+    width: 100%;
+}
+.page-content {
+    display: block; 
+}
+
+/* Layout do App Principal */
+.app-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--color-grey-light);
+}
+.main-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 80px;
+    height: 100vh;
+    background-color: var(--color-primary-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0;
+    transition: width 0.3s ease;
+}
+.sidebar-logo {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 2rem;
+    color: var(--color-white);
+    font-size: 40px;
+}
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.sidebar-link {
+    font-size: 24px;
+    color: var(--color-white);
+    opacity: 0.6;
+    transition: opacity 0.2s, transform 0.2s;
+    position: relative;
+    padding: 8px;
+    border-radius: var(--border-radius-sm);
+}
+.sidebar-link:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.sidebar-link.active {
+    opacity: 1;
+    background-color: var(--color-primary);
+}
+.sidebar-footer {
+    margin-top: auto;
+    font-size: 24px;
+    color: var(--color-white);
+    opacity: 0.6;
+}
+.sidebar-footer:hover {
+    opacity: 1;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    height: 70px;
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-grey-medium);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    flex-shrink: 0; /* Impede que o header encolha */
+}
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 350px;
+    height: 40px;
+    border: 1px solid var(--color-grey-medium);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+}
+.search-icon {
+    width: 50px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    background-color: var(--color-primary-dark);
+    color: var(--color-white);
+    font-size: 20px;
+    border-radius: var(--border-radius-lg) 0 0 var(--border-radius-lg);
+}
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 0 15px;
+    font-size: 14px;
+}
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.control-icon {
+    font-size: 24px;
+    color: var(--color-text);
+    cursor: pointer;
+}
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-grey-medium);
+    overflow: hidden;
+}
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.user-info {
+    line-height: 1.2;
+}
+.user-name {
+    font-weight: 600;
+    font-size: 14px;
+}
+.user-role {
+    font-size: 12px;
+    color: var(--color-grey-dark);
+}
+
+/* Header de Página */
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.page-title {
+    font-size: 28px;
+    font-weight: 600;
+}
