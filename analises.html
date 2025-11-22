@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,12 +12,11 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <div class="page active app-container">
 
-        <!-- Componente: Sidebar (Navegação) -->
+    <div class="page active app-container">
+        
         <aside class="sidebar">
             <div class="sidebar-logo">
                 <i class='bx bxs-leaf'></i>
@@ -42,7 +40,7 @@
         </aside>
 
         <div class="main-wrapper">
-
+            
             <header class="header">
                 <div class="search-bar">
                     <div class="search-icon"><i class='bx bx-search'></i></div>
@@ -77,47 +75,100 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="analises-grid">
                         <div class="card kpi-card">
-                            <div class="kpi-header"><span class="kpi-title"><i class='bx bxs-camera'></i> Taxa de Fotos por dia</span></div>
+                            <div class="kpi-header" syul><span class="kpi-title"><i class='bx bxs-camera'></i> Taxa de Fotos por dia</span></div>
                             <div class="kpi-value">4</div>
-                            <div class="kpi-footer">Intervalo de 6 horas por foto</div>
+                            <div class="kpi-footer" style="color: black;">Intervalo de 6 horas por foto</div>
                         </div>
-                        <div class="card kpi-card">
-                            <div class="kpi-header"><span class="kpi-title"><i class='bx bx-target-lock'></i> Precisão média</span></div>
+                        <div class="card kpi-card" >
+                            <div class="kpi-header" ><span class="kpi-title"><i class='bx bx-target-lock'></i> Precisão média</span></div>
                             <div class="kpi-value">50.2 <span class="kpi-value-unit">mAP<sup>val</sup></span></div>
-                            <div class="kpi-footer">Precisão ideal: 50-95</div>
+                            <div class="kpi-footer" style="color: black;">Precisão ideal: 50-95</div>
                         </div>
                         <div class="card kpi-card">
-                            <div class="kpi-header"><span class="kpi-title"><i class='bx bxs-chip'></i> Velocidade CPU</span></div>
+                            <div class="kpi-header" ><span class="kpi-title"><i class='bx bxs-chip'></i> Velocidade CPU</span></div>
                             <div class="kpi-value">234.7 <span class="kpi-value-unit">ms</span></div>
-                            <div class="kpi-footer">Velocidade de processamento ideal</div>
+                            <div class="kpi-footer" style="color: black;">Velocidade de processamento ideal</div>
                         </div>
                         <div class="card kpi-card">
                             <div class="kpi-header"><span class="kpi-title"><i class='bx bxs-data'></i> Qnt. de Fotos no Database</span></div>
                             <div class="kpi-value">10.253</div>
-                            <div class="kpi-footer">28 fotos por semana</div>
+                            <div class="kpi-footer" style="color: black;">28 fotos por semana</div>
                         </div>
+                        
                         <div class="card">
-                            <span class="kpi-title">Métrica de Desempenho</span>
-                            <div class="line-chart-container" style="height: 300px;">
-                                <canvas id="metricaDesempenhoChart1"></canvas>
+                            <span class="kpi-title" style="display: block; margin-bottom: 1rem;">Métrica de Desempenho</span>
+                            <div class="chart-layout-wrapper">
+                                <div class="chart-area-wrapper">
+                                    <canvas id="metricaDesempenhoChart1"></canvas>
+                                </div>
+                                <div class="custom-chart-legend">
+                                    <div class="legend-row"><span class="box box-yolo11"></span> YOLO11</div>
+                                    <div class="legend-row"><span class="box box-yolov10"></span> YOLOv10</div>
+                                    <div class="legend-row"><span class="box box-grey"></span> YOLOv9</div>
+                                    <div class="legend-row"><span class="box box-grey"></span> YOLOv8</div>
+                                    <div class="legend-row"><span class="box box-grey"></span> YOLOv7</div>
+                                    <div class="legend-row"><span class="box box-grey"></span> YOLOv6 3.0</div>
+                                    <div class="legend-row"><span class="box box-grey"></span> YOLOv5</div>
+                                    <div class="legend-row"><span class="box box-grey"></span> PP-YOLOE+</div>
+                                    <div class="legend-row"><span class="box box-grey"></span> DAMO-YOLO</div>
+                                    <div class="legend-row"><span class="box box-grey"></span> YOLOX</div>
+                                    <div class="legend-row"><span class="box box-grey"></span> RTDETRv2</div>
+                                    <div class="legend-row"><span class="box box-grey"></span> EfficientDet</div>
+                                </div>
                             </div>
                         </div>
+                        
                         <div class="card">
-                            <span class="kpi-title">Relatório do Processamento de Imagens</span>
-                            <div class="report-card-grid" style="margin-top: 1.5rem;">
-                                <div class="info-item"><span class="info-label">Modelo</span><span class="info-value" style="font-size: 24px;">YOLOv8m</span></div>
-                                <div class="info-item"><span class="info-label">Qnt. de Fotos no Database</span><span class="info-value" style="font-size: 24px;">10.253</span></div>
-                                <div class="info-item"><span class="info-label">Intervalo de 6 horas por foto</span><span class="info-value">28 fotos por semana</span></div>
-                                <div class="info-item"><span class="info-label">Tamanho</span><span class="info-value" style="font-size: 24px;">640 px</span></div>
-                                <div class="info-item"><span class="info-label">Previsão Média</span><span class="info-value" style="font-size: 24px;">50.2 mAP<sup>val</sup></span></div>
-                                <div class="info-item"><span class="info-label">Velocidade CPU ONNX</span><span class="info-value" style="font-size: 24px;">234.7 ms</span></div>
-                                <div class="info-item"><span class="info-label">Velocidade A100 TensorRT</span><span class="info-value" style="font-size: 24px;">1.83 ms</span></div>
+                            <span class="kpi-title"><i class='bx bxs-camera'></i> Relatório do Processamento de Imagens</span>
+                            <div class="report-card-grid">
+                                <div class="info-item">
+                                    <span class="info-label">Modelo</span>
+                                    <span class="info-value">YOLOv8m</span>
+                                    <span class="info-footer">Intervalo de 6 horas por foto</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Qnt. de Fotos no Database</span>
+                                    <span class="info-value">10.253</span>
+                                    <span class="info-footer">28 fotos por semana</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Tamanho</span>
+                                    <span class="info-value">640 px</span>
+                                    <span class="info-footer">28 fotos por semana</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Previsão Média</span>
+                                    <span class="info-value">50.2 mAP<sup>val</sup></span>
+                                    <span class="info-footer">Previsão ideal: 50-95</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Velocidade CPU ONMX</span>
+                                    <span class="info-value">234.7 ms</span>
+                                    <span class="info-footer">Velocidade de processamento ideal</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Velocidade A100 TensorRT</span>
+                                    <span class="info-value">1.83 ms</span>
+                                    <span class="info-footer">Velocidade de processamento ideal</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">Parâmetros</span>
+                                    <span class="info-value">28.9 M</span>
+                                    <span class="info-footer">Qnt. de Parâmetros treináveis ideal</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-label">FLOPs</span>
+                                    <span class="info-value">78.9 B</span>
+                                    <span class="info-footer">Floating Points Operations</span>
+                                </div>
                             </div>
                         </div>
+                        
                         <div class="card">
-                            <span class="kpi-title">Comparativo Métrica de Desempenho</span>
+                            <span class="kpi-title" style="display: block; margin-bottom: 1rem;">Comparativo Métrica de Desempenho</span>
                             <div class="line-chart-container" style="height: 300px;">
                                 <canvas id="metricaDesempenhoChart2"></canvas>
                             </div>
@@ -131,5 +182,4 @@
 
     <script src="js/main.js" defer></script>
 </body>
-
 </html>

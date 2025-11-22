@@ -1,50 +1,59 @@
-
 .card {
     background-color: var(--color-white);
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-md);
     padding: 1.5rem;
     overflow: hidden;
+    position: relative; 
 }
+
 .kpi-card {
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
+
 .kpi-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 .kpi-title {
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 700; 
     color: var(--color-text);
     display: flex;
     align-items: center;
     gap: 8px;
 }
+
 .kpi-title i {
     font-size: 20px;
 }
+
 .kpi-value {
     font-size: 36px;
     font-weight: 600;
 }
+
 .kpi-value-small {
     font-size: 28px;
     font-weight: 600;
 }
+
 .kpi-value-unit {
     font-size: 24px;
     font-weight: 400;
     color: var(--color-grey-dark);
     margin-left: 5px;
 }
+
 .kpi-footer {
     font-size: 14px;
     color: var(--color-grey-dark);
 }
+
 .kpi-badge {
     width: 60px;
     height: 10px;
@@ -57,12 +66,14 @@
     gap: 15px;
     margin-top: 10px;
 }
+
 .legend-item {
     display: flex;
     align-items: center;
     gap: 5px;
     font-size: 14px;
 }
+
 .legend-color {
     width: 12px;
     height: 12px;
