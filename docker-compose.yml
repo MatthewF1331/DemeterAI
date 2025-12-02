@@ -1,0 +1,101 @@
+version: "3.9"
+
+services:
+
+  # POSTGRESQL ---------------------
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-postgres}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
+      POSTGRES_DB: ${POSTGRES_DB:-demeter}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./DB/initdb:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # PGADMIN ---------------------
+  pgadmin:
+    image: dpage/pgadmin4:7
+    container_name: pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@example.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin}
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  # BACKEND ---------------------
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: demeter_backend
+    restart: unless-stopped
+    working_dir: /app/backend
+    volumes:
+      - ./backend:/app/backend
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: ${POSTGRES_USER:-postgres}
+      DB_PASS: ${POSTGRES_PASSWORD:-postgres}
+      DB_NAME: ${POSTGRES_DB:-demeter}
+
+  # MACHINE LEARNING ---------------------
+  demeterai:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: demeterai
+    restart: unless-stopped
+    working_dir: /app/ML/scripts
+    volumes:
+      - ./ML:/app/ML
+      - ./dataset/iot:/app/dataset/iot
+    command: ["python", "teste.py"]
+    depends_on:
+      backend:
+        condition: service_started
+      db:
+        condition: service_healthy
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: ${POSTGRES_USER:-postgres}
+      DB_PASS: ${POSTGRES_PASSWORD:-postgres}
+      DB_NAME: ${POSTGRES_DB:-demeter}
+      WS_BACKEND: ${WS_BACKEND:-ws://backend:8000/ws}
+      BACKEND_NOTIFY_URL: ${BACKEND_NOTIFY_URL:-http://backend:8000/notify}
+
+  # FRONTEND (com NGINX) ---------------------
+  frontend:
+    image: nginx:latest
+    container_name: demeter_frontend
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html:ro
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:

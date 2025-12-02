@@ -1,0 +1,21 @@
+/* style princiapal */
+
+/* 1. Reset e Variáveis Globais */
+@import url('styles/reset.css');
+@import url('styles/variables.css');
+
+/* 2. Layout*/
+@import url('styles/components/layout.css'); 
+
+/* 3. Componentes Reutilizáveis  */
+@import url('styles/components/buttons.css');
+@import url('styles/components/cards.css');
+
+/* 4. Estilos de Páginas Específicas*/
+@import url('pages-css/login.css');
+@import url('pages-css/dashboard.css');
+@import url('pages-css/database.css');
+@import url('pages-css/analises.css');
+
+/* 5. Estilos de Responsividade  */
+@import url('styles/responsive.css');
