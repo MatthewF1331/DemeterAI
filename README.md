@@ -6,8 +6,6 @@ Este é o repositório para o versionamento do projeto **DeméterAI**, um dashbo
 
 O objetivo principal do projeto é automatizar e trazer precisão aos processos de contagem e classificação dos insetos, auxiliando produtores rurais e agrônomos na tomada de decisão para o controle de pragas de forma sustentável.
 
----
-
 ## Docker - Guia de Instalação e Execução
 
 Este projeto utiliza **Docker Compose** para orquestrar múltiplos serviços como Backend, Frontend, Banco de Dados, Machine Learning e Ferramentas de Administração. Por isso, para o funcionamento adequado do projeto, é necessário utilizar o Docker Desktop.
@@ -16,7 +14,7 @@ Este projeto utiliza **Docker Compose** para orquestrar múltiplos serviços com
 
 Certifique-se de ter o **Docker** e o **Docker Compose** instalados em sua máquina.
 
-[ [Instalar Docker](https://docs.docker.com/get-docker/ "null") ]
+[[Instalar Docker](https://docs.docker.com/get-docker/ "null")]
 
 ### 1. Clonar o Repositório
 
@@ -35,11 +33,11 @@ O ambiente Docker está configurado para subir os seguintes serviços, definidos
 * **backend** `fastapi` - API principal rodando na porta `8000`.
 * **demeterai** `ml worker` - Código do Machine Learning para processamento.
 * **frontend** `nginx` - Servidor web para os arquivos estáticos na porta `8080`.
-* **pgadmin -** Interface para gerenciamento do banco de dados na porta `5050`.
+* **pgadmin** - Interface para gerenciamento do banco de dados na porta `5050`.
 
 ### 3. Build e Execução
 
-Como os arquivos de configuração `Dockerfile` e `docker-compose.yml` estão na raiz do projeto, é necessário acessar a raiz do arquivo para executá-los. Para isso, utilize o comando abaixo no **Terminal** do **Docker Desktop** (ou no seu terminal de preferência) para acessar o diretório:
+Como os arquivos de configuração `Dockerfile` e `docker-compose.yml` estão na raiz do projeto, é necessário acessar a raiz do arquivo para executá-los. Para isso, utilize o comando abaixo no **Terminal** do **Docker Desktop** para acessar o diretório:
 
 ```
 cd <caminho do seu diretório>
@@ -62,14 +60,14 @@ Aguarde até que todos os serviços estejam iniciados.
 
 Após o ambiente iniciar, você pode acessar as interfaces através das seguintes URLs:
 
-| ServiçoURLDescrição |                         |                                |
+| Serviço             | URL                     | Descrição                      |
 | ------------------- | ----------------------- | ------------------------------ |
 | **Frontend**        | `http://localhost:8080` | Interface do Dashboard (Nginx) |
 | **pgAdmin**         | `http://localhost:5050` | Gerenciador do Banco de Dados  |
 
 Ou você pode ir até a aba **Containers** do **Docker Desktop** e verificar na coluna **Port(s)** a porta do container que você deseja acessar.
 
-**Credenciais Padrão (Ambiente de Desenvolvimento):**
+**Credenciais Padrão para o Ambiente de Desenvolvimento:**
 
 **Postgres:** 
 
