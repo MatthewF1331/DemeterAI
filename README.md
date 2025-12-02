@@ -76,7 +76,7 @@ Ou você pode ir até a aba **Containers** do **Docker Desktop** e verificar na 
 ```
 USER     = postgres
 PASSWORD = 1234
-DB       = demete
+DB       = demeter
 ```
 
 **Pgadmin:** 
